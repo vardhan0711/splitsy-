@@ -1,0 +1,5 @@
+{
+  "sdk": {
+    "functions": ["./app/api/inngest/route.ts"]
+  }
+}
