@@ -1,14 +1,19 @@
 "use client";
 
-import { Authenticated } from "convex/react";
+import { useStoreUser } from "@/hooks/use-store-user";
 import React from "react";
 
 const MainLayout = ({ children }) => {
+  const { isLoading, isAuthenticated } = useStoreUser();
+
+  if (isLoading) {
+    return null;
+  }
+
   return (
-    <Authenticated>
-      <div className="container mx-auto mt-24 mb-20 px-4">{children}
-      </div>
-    </Authenticated>
+    isAuthenticated && (
+      <div className="container mx-auto mt-24 mb-20 px-4">{children}</div>
+    )
   );
 };
 
