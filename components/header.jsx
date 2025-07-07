@@ -100,11 +100,11 @@ const Header = () => {
           </Authenticated>
 
           <Unauthenticated>
-            <SignInButton>
+            <SignInButton forceRedirectUrl="/dashboard">
               <Button variant="ghost">Sign In</Button>
             </SignInButton>
 
-            <SignUpButton>
+            <SignUpButton forceRedirectUrl="/dashboard">
               <Button className="bg-blue-600 hover:bg-blue-700 border-none">
                 Get Started
               </Button>

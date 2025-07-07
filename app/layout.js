@@ -4,6 +4,8 @@ import { ClerkProvider } from "@clerk/nextjs";
 import { ConvexClientProvider } from "@/components/convex-client-provider";
 import Header from "@/components/header";
 import { Toaster } from "sonner";
+import { Suspense } from "react";
+import { ClipLoader } from "react-spinners";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -26,8 +28,9 @@ export default function RootLayout({ children }) {
             <Header />
             <main className="min-h-screen">
               <Toaster richColors />
-
-              {children}
+              <Suspense fallback={<div className="w-full min-h-screen flex items-center justify-center bg-white/80"><ClipLoader size={64} color="#2563eb" speedMultiplier={1.2} /></div>}>
+                {children}
+              </Suspense>
             </main>
           </ConvexClientProvider>
         </ClerkProvider>

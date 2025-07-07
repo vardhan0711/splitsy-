@@ -23,10 +23,8 @@ export const store = mutation({
       .unique();
     if (user !== null) {
       // If we've seen this identity before but the name has changed, patch the value.
-      if (user.name !== (identity.name || "Anonymous")) {
-        await ctx.db.patch(user._id, {
-          name: identity.name || "Anonymous",
-        });
+      if (user.name !== identity.name) {
+        await ctx.db.patch(user._id, { name: identity.name });
       }
       return user._id;
     }
@@ -34,6 +32,8 @@ export const store = mutation({
     return await ctx.db.insert("users", {
       name: identity.name || "Anonymous",
       tokenIdentifier: identity.tokenIdentifier,
+      email: identity.email,
+      imageUrl: identity.pictureUrl,
     });
   },
 });
