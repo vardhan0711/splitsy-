@@ -1,11 +1,8 @@
 <div align="center">
-  <h1>🧮 [Splitsy]</h1>
+  <h1>🧮 Splitsy</h1>
   <p><strong>The smartest way to split expenses with friends</strong></p>
 </div>
 
-<p align="center">
-  <img src="https://media.giphy.com/media/4uZaTLj8UIPLI/giphy.gif" width="400" alt="App Demo GIF" />
-</p>
 
 <p align="center">
   <a href="https://your-app-url.vercel.app"><strong>🌐 Visit Live Website</strong></a>
@@ -23,7 +20,7 @@
 
 ## 📖 Description
 
-**[Splitsy]** is a smart, modern web application designed to simplify group expense management. Whether you're splitting rent, groceries, or trip costs, the app makes it easy to track, manage, and settle balances transparently.
+**Splitsy** is a smart, modern web application designed to simplify group expense management. Whether you're splitting rent, groceries, or trip costs, the app makes it easy to track, manage, and settle balances transparently.
 
 Key highlights:
 - AI-powered settlement suggestions
