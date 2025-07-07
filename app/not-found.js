@@ -26,9 +26,9 @@ export default function NotFound() {
   };
 
   return (
-    <div className="flex flex-col min-h-screen"> {/* Changed to flex-col for proper footer positioning */}
+    <div className="flex flex-col min-h-screen">
       <motion.div
-        className="flex flex-col items-center justify-center flex-grow bg-gray-50 text-center px-4 py-12" // flex-grow makes this section take available space
+        className="flex flex-col items-center justify-center flex-grow bg-gray-50 text-center px-4 py-12"
         variants={containerVariants}
         initial="hidden"
         animate="visible"
@@ -45,15 +45,15 @@ export default function NotFound() {
             className="text-3xl font-bold tracking-tighter sm:text-4xl md:text-5xl"
             variants={itemVariants}
           >
-            Oops! It looks like you've wandered off the path.
+            Oops! It looks like you&#39;ve wandered off the path.
           </motion.h2>
 
           <motion.p
             className="mx-auto max-w-[700px] text-gray-500 md:text-xl/relaxed"
             variants={itemVariants}
           >
-            The page you're looking for might have been moved, deleted, or never existed.
-            Don't worry, we'll help you find your way back home.
+            The page you&#39;re looking for might have been moved, deleted, or never existed.
+            Don&#39;t worry, we&#39;ll help you find your way back home.
           </motion.p>
 
           <motion.div variants={itemVariants}>
@@ -71,7 +71,7 @@ export default function NotFound() {
       {/* ───── Footer ───── */}
       <footer className="border-t bg-gray-50 py-12 text-center text-sm text-muted-foreground">
         <div className="container mx-auto space-y-4">
-          <div className="flex justify-center gap-4 mb-2"> {/* Container for buttons */}
+          <div className="flex justify-center gap-4 mb-2">
             <Button asChild variant="outline" className="text-gray-700 hover:text-gray-900 border-gray-300 hover:border-gray-400">
               <Link href="https://github.com/vardhan0711" target="_blank" rel="noopener noreferrer">
                 <Github className="h-4 w-4 mr-2" />
