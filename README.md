@@ -5,7 +5,7 @@
 
 
 <p align="center">
-  <a href="https://your-app-url.vercel.app"><strong>🌐 Visit Live Website</strong></a>
+  <a href="https://splitsy-gamma.vercel.app/"><strong>🌐 Visit Live Website</strong></a>
 </p>
 
 <p align="center">
