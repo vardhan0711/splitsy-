@@ -8,6 +8,7 @@ import { Card, CardContent } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import { ArrowLeftRight } from "lucide-react";
 import Link from "next/link";
+import { formatCurrency } from '@/lib/utils';
 
 export function SettlementList({
   settlements,
@@ -86,7 +87,7 @@ export function SettlementList({
 
                 <div className="text-right">
                   <div className="font-medium">
-                    ${settlement.amount.toFixed(2)}
+                    {formatCurrency(settlement.amount)}
                   </div>
                   {isGroupSettlement ? (
                     <Badge variant="outline" className="mt-1">

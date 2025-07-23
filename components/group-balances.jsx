@@ -4,6 +4,7 @@ import { useConvexQuery } from "@/hooks/use-convex-query";
 import { api } from "@/convex/_generated/api";
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
 import { ArrowUpCircle, ArrowDownCircle } from "lucide-react";
+import { formatCurrency } from '@/lib/utils';
 
 /**
  * Expected `balances` shape (one object per member):
@@ -71,10 +72,10 @@ export function GroupBalances({ balances }) {
           }`}
         >
           {me.totalBalance > 0
-            ? `+$${me.totalBalance.toFixed(2)}`
+            ? `+${formatCurrency(me.totalBalance)}`
             : me.totalBalance < 0
-              ? `-$${Math.abs(me.totalBalance).toFixed(2)}`
-              : "$0.00"}
+              ? `-${formatCurrency(Math.abs(me.totalBalance))}`
+              : formatCurrency(0)}
         </p>
         <p className="text-sm text-muted-foreground mt-1">
           {me.totalBalance > 0
@@ -114,7 +115,7 @@ export function GroupBalances({ balances }) {
                       <span className="text-sm">{member.name}</span>
                     </div>
                     <span className="font-medium text-green-600">
-                      ${member.amount.toFixed(2)}
+                      {formatCurrency(member.amount)}
                     </span>
                   </div>
                 ))}
@@ -145,7 +146,7 @@ export function GroupBalances({ balances }) {
                       <span className="text-sm">{member.name}</span>
                     </div>
                     <span className="font-medium text-red-600">
-                      ${member.amount.toFixed(2)}
+                      {formatCurrency(member.amount)}
                     </span>
                   </div>
                 ))}

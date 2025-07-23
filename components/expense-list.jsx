@@ -11,6 +11,7 @@ import { getCategoryIcon } from "@/lib/expense-categories";
 import { Trash2 } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { toast } from "sonner";
+import { formatCurrency } from '@/lib/utils';
 
 export function ExpenseList({
   expenses,
@@ -115,7 +116,7 @@ export function ExpenseList({
                 <div className="flex items-center gap-2">
                   <div className="text-right">
                     <div className="font-medium">
-                      ${expense.amount.toFixed(2)}
+                      {formatCurrency(expense.amount)}
                     </div>
                     {isGroupExpense ? (
                       <Badge variant="outline" className="mt-1">
@@ -175,8 +176,7 @@ export function ExpenseList({
                           </AvatarFallback>
                         </Avatar>
                         <span>
-                          {isCurrentUser ? "You" : splitUser.name}: $
-                          {split.amount.toFixed(2)}
+                          {isCurrentUser ? "You" : splitUser.name}: {formatCurrency(split.amount)}
                         </span>
                       </Badge>
                     );

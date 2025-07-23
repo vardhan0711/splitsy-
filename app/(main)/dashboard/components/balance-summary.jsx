@@ -2,6 +2,7 @@
 import Link from "next/link";
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
 import { ArrowUpCircle, ArrowDownCircle } from "lucide-react";
+import { formatCurrency } from '@/lib/utils';
 
 export function BalanceSummary({ balances }) {
   if (!balances) return null;
@@ -39,7 +40,7 @@ export function BalanceSummary({ balances }) {
                   <span className="text-sm">{item.name}</span>
                 </div>
                 <span className="font-medium text-blue-600">
-                  ${item.amount.toFixed(2)}
+                  {formatCurrency(item.amount)}
                 </span>
               </Link>
             ))}
@@ -68,7 +69,7 @@ export function BalanceSummary({ balances }) {
                   <span className="text-sm">{item.name}</span>
                 </div>
                 <span className="font-medium text-red-600">
-                  ${item.amount.toFixed(2)}
+                  {formatCurrency(item.amount)}
                 </span>
               </Link>
             ))}

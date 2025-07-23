@@ -9,11 +9,40 @@ import { LayoutDashboard } from 'lucide-react';
 import { usePathname, useRouter } from 'next/navigation'; // Imported useRouter
 import BarLoader from 'react-spinners/BarLoader';
 import { SignedIn, SignedOut, UserButton, SignInButton, SignUpButton } from '@clerk/nextjs'
+import { Sun, Moon } from 'lucide-react';
 
 const Header = () => {
     const {isLoading} = useStoreUser();
     const path = usePathname();
     const router = useRouter(); // Initialized useRouter
+
+    const [theme, setTheme] = React.useState(() => {
+      if (typeof window !== 'undefined') {
+        return document.documentElement.classList.contains('dark') ? 'dark' : 'light';
+      }
+      return 'light';
+    });
+
+    React.useEffect(() => {
+      if (theme === 'dark') {
+        document.documentElement.classList.add('dark');
+        localStorage.setItem('theme', 'dark');
+      } else {
+        document.documentElement.classList.remove('dark');
+        localStorage.setItem('theme', 'light');
+      }
+    }, [theme]);
+
+    React.useEffect(() => {
+      if (typeof window !== 'undefined') {
+        const savedTheme = localStorage.getItem('theme');
+        if (savedTheme) setTheme(savedTheme);
+      }
+    }, []);
+
+    const toggleTheme = () => {
+      setTheme((prev) => (prev === 'dark' ? 'light' : 'dark'));
+    };
 
     // Function to handle smooth scrolling to a section
     const handleScroll = (id) => { // Removed type annotation 'id: string'
@@ -73,6 +102,14 @@ const Header = () => {
           </div>
         )}
         <div className="flex items-center gap-4">
+          <Button
+            variant="ghost"
+            aria-label="Toggle theme"
+            onClick={toggleTheme}
+            className="w-10 h-10 p-0"
+          >
+            {theme === 'dark' ? <Sun className="w-5 h-5" /> : <Moon className="w-5 h-5" />}
+          </Button>
           <Authenticated>
             <Link href="/dashboard">
               <Button

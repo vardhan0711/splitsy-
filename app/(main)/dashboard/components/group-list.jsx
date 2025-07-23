@@ -1,5 +1,6 @@
 import Link from "next/link";
 import { Users } from "lucide-react";
+import { formatCurrency } from '@/lib/utils';
 
 export function GroupList({ groups }) {
   if (!groups || groups.length === 0) {
@@ -44,7 +45,7 @@ export function GroupList({ groups }) {
                   balance > 0 ? "text-green-600" : "text-red-600"
                 }`}
               >
-                {balance > 0 ? "+" : ""}${balance.toFixed(2)}
+                {balance > 0 ? "+" : ""}{formatCurrency(balance)}
               </span>
             )}
           </Link>

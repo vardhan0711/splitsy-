@@ -129,3 +129,8 @@
 @utility gradient-title {
   @apply gradient font-extrabold tracking-tighter text-transparent bg-clip-text pb-1 pr-2;
 }
+
+.dark body {
+  background-color: var(--background);
+  background-image: radial-gradient(ellipse at 50% 0%, rgba(60,60,80,0.25) 0%, rgba(20,20,40,0.18) 60%, transparent 100%);
+}
